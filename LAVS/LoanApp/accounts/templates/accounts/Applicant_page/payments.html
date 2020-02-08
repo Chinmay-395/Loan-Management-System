@@ -1,0 +1,40 @@
+{%  extends 'accounts/base.html' %}
+
+{% block content %}
+
+<br>
+<p>
+    <h4>
+        Your loan amount is ₹{{Loan_amount}}
+        <br>
+        The interest rate is {{interest_rate}} <!--Add interest rate into the model as well-->
+        <br>
+        Duration is {{duration}} years
+        <br>
+        Monthly payment ₹{{monthly_payment}} 
+    </h4>
+    <h6>*Processing fees will be charged externally which is ₹{{proceesing_Fees}}*</h6>
+</p>
+<div class="row">
+    <div class="col-md-9">
+        <div class="card card-body">
+            <h5>installments splitted</h5>
+            <table class="table table-sm">
+                <tr>
+                    <th>Year</th>
+                    <th>Balance remaining</th>
+                    <th>Total payments</th>
+                </tr>
+            {% for tuple_in_list in x %}
+                <tr>
+                {% for val in tuple_in_list %}
+                    <td>{{val}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
