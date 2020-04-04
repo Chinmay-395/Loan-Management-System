@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md">
-        <div class="card card-body" id="cardy" style="background-color: #4cb4c7;">
+        <div class="card card-body">
             <h5>Customer:</h5>
             <hr>
             <p>Name: {{customer.name}}</p>
@@ -36,7 +36,7 @@
                     <th>Processing_Fees</th>
                     <th>loan_amount</th>
                     <th>Score</th>
-                    <th>Payments</th>
+                    
                 </tr>
                 {% for policy in orders %}
                 <tr>
@@ -47,12 +47,11 @@
                     <td>{{policy.Processing_Fees}}</td>
                     <td>{{policy.loan_amount}}</td>
                     <td>{{policy.applicant.CIBIL_score}}</td>
-
-                    <td><a class="btn btn-sm btn-info" href="{#% url 'applying_for_policy' policy.id %#}">Check</a></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
     </div>
 </div>
+
 {% endblock %}

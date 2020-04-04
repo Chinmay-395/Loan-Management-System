@@ -1,7 +1,8 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class Applicant(models.Model):
+    user         = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     name         = models.CharField(max_length=200, null=True)
     phone        = models.CharField(max_length=200, null=True)
     email        = models.CharField(max_length=200, null=True)
@@ -31,6 +32,8 @@ class Policy(models.Model):
     Tenure = models.IntegerField(blank=True, null=True)
     Processing_Fees = models.IntegerField(blank=True, null=True)
     loan_amount = models.IntegerField(blank=True, null=True)
-    
+    interest_rate = models.IntegerField(default=5, blank=True, null=True)
+
+
     def __str__(self):
         return self.policy_name

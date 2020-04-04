@@ -1,0 +1,100 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+
+<br>
+
+
+<br>
+
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white  mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Customer:</h5>
+                </div>
+                <!-- <h5>Customer:</h5> -->
+                <!-- <hr> -->
+                <div class="card-body">
+                    <a class="btn btn-outline-light  btn-sm btn-block" href="{% url 'updateApplicant' customer.id %}">Update Customer</a>
+                    <br>
+                    <p>Name: {{customer.name}}</p>
+                    <p>income: {{customer.income}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white  mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Contact Information</h5>
+                </div>
+                <!-- <h5>Customer:</h5> -->
+                <!-- <hr> -->
+                <div class="card-body">
+                    <p>Email: {{customer.email}}</p>
+                    <p>Phone: {{customer.phone}}</p>
+                    <p>id: {{customer.id}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white  mb-3" id="total-orders">
+                <div class="card-header">
+                    <h5 class="card-title">Total Policy</h5>
+                </div>
+                <!-- <h5>Customer:</h5> -->
+                <!-- <hr> -->
+                <div class="card-body">
+                    <h1 style="text-align: center;padding: 10px">{{total_orders}}</h1>
+                </div>
+                
+    
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>id</th>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Tenure</th>
+                    <th>Processing_Fees</th>
+                    <th>loan_amount</th>
+                    <th>Score</th>
+                    <th>Payments</th>
+                </tr>
+
+                {% for policy in orders %}
+
+                <tr>
+                    <td>{{policy.id}}</td>
+                    <td>{{policy.policy_name}}</td>
+                    <td>{{policy.bank}}</td>
+                    <td>{{policy.Tenure}}</td>
+                    <td>{{policy.Processing_Fees}}</td>
+                    <td>{{policy.loan_amount}}</td>
+                    <td>{{policy.applicant.CIBIL_score}}</td>
+                    <td><a class="btn btn-sm btn-info" href="{% url 'applying_for_policy' policy.id %}">Check</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+<br>
+
+{% endblock %}

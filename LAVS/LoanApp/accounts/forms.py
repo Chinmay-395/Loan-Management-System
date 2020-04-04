@@ -14,3 +14,16 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+
+class UpgradeUserForm(ModelForm):
+    class Meta:
+        model = Applicant
+        fields = ['name', 'phone', 'email',
+                  'income', 'CIBIL_score']  # '__all__'
+
+
+# class ApplyForPolicyForm(ModelForm):
+#     class Meta:
+#         model = Policy
+#         fields = '[]'

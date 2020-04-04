@@ -1,0 +1,10 @@
+<h2>ID of the customer who is logged in: {{customerWhoIsLoggedIn}}</h2>
+<h2>ID of the new policy:{{policyCustomerIsChoosing}}</h2>
+<h3>Sum of Previous Loan amount: {{totalExistingLoanAmount}}</h3>     
+<h3>New Policy loan Amount: {{loanAmountOfPolicyChoosen}}</h3>
+<h3>sum of old and Sum of Previous Loan amount: {{totalExistingLoanAmountAfterNewPolicy}}</h3>
+<form method="POST">
+    {% csrf_token %}
+    {{ formset.as_p }}
+    <button type="submit">Save</button>
+</form>
